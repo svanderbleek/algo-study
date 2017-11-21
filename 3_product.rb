@@ -19,5 +19,6 @@ end
 describe 'it' do
   it 'works' do
     assert_equal 5000, highest_product_of_3([1, 10, -5, 1, -100])
+    assert_equal 300, highest_product_of_3([-10, -10, 1, 3, 2])
   end
 end
