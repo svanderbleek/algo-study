@@ -27,7 +27,7 @@ end
 def merge_ranges(ranges, steps = nil)
   return ranges unless ranges.size > 1
   sorted = ranges.sort
-  steps&.add(Steps.sort_cost(ranges))
+  steps&.sort(ranges)
   sorted[1..-1].each_with_object([sorted.first]) do |range, merged|
     steps&.one
     if range[0].between?(*merged.last)

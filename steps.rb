@@ -13,7 +13,7 @@ class Steps
     @count += 1
   end
 
-  def self.sort_cost(array)
-    array.size * Math.log(array.size, 2)
+  def sort(array)
+    @count += array.size * Math.log(array.size, 2)
   end
 end
