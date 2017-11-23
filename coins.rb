@@ -31,6 +31,6 @@ describe 'my algo' do
     m = denominations.count
     steps = Steps.new
     number_of_ways(n, denominations, steps)
-    assert_equal n * m, steps.count
+    assert_operator steps.count, :<=, n * (Math.log(n, 2) + m)
   end
 end
