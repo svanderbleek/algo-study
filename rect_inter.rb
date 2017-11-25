@@ -41,7 +41,4 @@ describe 'it' do
       )
     )
   end
-
-  it 'is ok' do
-  end
 end
