@@ -41,9 +41,29 @@ def abstract(tree, remove, bullshit, &f)
 end
 
 def mergesort(array, steps=nil)
+  if array.size != 1
+    last = array.size - 1
+    split = last / 2
+    merge(mergesort(array[0..split]), mergesort(array[split+1..last]))
+  else
+    array
+  end
+end
+
+def merge(a1, a2)
+  merged = []
+  while a1.any? && a2.any?
+    if a1.first <= a2.first
+      merged.push(a1.shift)
+    else
+      merged.push(a2.shift)
+    end
+  end
+  merged + a1 + a2
 end
 
 def quicksort(array, steps=nil)
+  pivot = (0..array.size-1).sample
 end
 
 dtree =
@@ -97,8 +117,10 @@ describe 'basics' do
   end
 
   it 'merge' do
+    assert_equal (1..10).to_a, mergesort((1..10).to_a.shuffle)
   end
 
   it 'quick' do
+    assert_equal (1..10).to_a, quicksort((1..10).to_a.shuffle)
   end
 end
